@@ -14,7 +14,7 @@ Once a player crafts the first Mace, all further crafting attempts (including sh
 1. Install Fabric Loader and Fabric API for Minecraft 1.21.8.
 2. Place the mod `.jar` file into your `mods/` folder.
 3. Start your server or singleplayer world.
-4. The first Mace crafted in the world will be allowed — all others are blocked until reset with:
+4. The first Mace crafted in the world will be allowed — all others are blocked until reset with command.
 
 ## Requirements
 - Minecraft 1.21.8
