@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "id": "limited_mace",
+  "version": "1.0.0",
+  "name": "limited_mace",
+  "description": "Allows only one mace to be crafted per world.",
+  "authors": ["daddyAdrian"],
+  "license": "MIT",
+  "environment": "server",
+  "entrypoints": {
+    "main": ["com.example.limitedmace.LimitedMaceMod"]
+  },
+  "mixins": [
+    "limited_mace.mixins.json"
+  ],
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "~1.21.8",
+    "fabric-api": ">=0.130.0+1.21.8"
+  }
+}

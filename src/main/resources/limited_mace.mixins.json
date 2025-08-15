@@ -1,0 +1,16 @@
+{
+  "required": true,
+  "package": "com.example.limitedmace.mixin",
+  "compatibilityLevel": "JAVA_21",
+  "mixins": [
+    "CraftingResultSlotMixin",
+    "CraftingBlockerSlotMixin",
+    "CraftingScreenHandlerMixin",
+    "CraftingScreenHandlerQuickMove",
+    "PlayerScreenHandlerQuickMove",
+    "CrafterBlockMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

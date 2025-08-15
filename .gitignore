@@ -1,0 +1,13 @@
+# Gradle
+.gradle/
+build/
+
+# IntelliJ / Eclipse
+.idea/
+*.iml
+*.ipr
+*.iws
+bin/
+
+# Logs
+*.log
