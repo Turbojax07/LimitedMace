@@ -12,4 +12,4 @@ bin/
 # Logs
 *.log
 
-.run/
+run/
