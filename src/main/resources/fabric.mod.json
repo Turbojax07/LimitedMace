@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "id": "limited_mace",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "name": "limited_mace",
   "description": "Allows only one mace to be crafted per world.",
   "authors": ["daddyAdrian"],

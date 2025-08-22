@@ -50,7 +50,7 @@ public abstract class CraftingResultSlotMixin {
 
         com.example.limitedmace.ClickGuard.markThisTick(serverPlayer, world);
 
-        System.out.println("[LimitedMace] First mace crafted -> flag set true (allowing take).");
+        //System.out.println("[LimitedMace] First mace crafted -> flag set true (allowing take).");
     }
 
     private static String describe(ItemStack stack) {

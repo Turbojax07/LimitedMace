@@ -13,7 +13,7 @@ public class LimitedMaceMod implements ModInitializer {
 
     @Override
     public void onInitialize() {
-        System.out.println("[LimitedMace] Mod initializing");
+        System.out.println("LimitedMace initializing");
 
         CommandRegistrationCallback.EVENT.register((dispatcher, registryAccess, environment) -> {
             dispatcher.register(literal("limitedmace")
@@ -24,13 +24,13 @@ public class LimitedMaceMod implements ModInitializer {
                         LimitedMaceState state = LimitedMaceState.get(world);
                         state.crafted = false;
                         state.markDirty();
-                        src.sendFeedback(() -> Text.literal("LimitedMace: flag reset = false"), false);
+                        src.sendFeedback(() -> Text.literal("LimitedMace flag reset"), false);
                         return 1;
                     }))
                     .then(literal("state").executes(ctx -> {
                         ServerCommandSource src = ctx.getSource();
                         LimitedMaceState s = LimitedMaceState.get(src.getWorld());
-                        src.sendFeedback(() -> Text.literal("LimitedMace: crafted=" + s.crafted), false);
+                        src.sendFeedback(() -> Text.literal("LimitedMace crafted=" + s.crafted), false);
                         return 1;
                     }))
             );

@@ -4,7 +4,7 @@ plugins {
 }
 
 group = 'com.example.limitedmace'
-version = '1.0.0'
+version = '1.0.1'
 
 repositories {
     mavenCentral()
@@ -12,14 +12,12 @@ repositories {
 }
 
 dependencies {
-    // Minecraft + Yarn mappings for 1.21.8
     minecraft "com.mojang:minecraft:1.21.8"
     mappings "net.fabricmc:yarn:1.21.8+build.1:v2"
 
-    // Fabric Loader (mod loader)
+
     modImplementation "net.fabricmc:fabric-loader:0.17.2"
 
-    // Fabric API for 1.21.8 (gives us the command API, etc.)
     modImplementation "net.fabricmc.fabric-api:fabric-api:0.130.0+1.21.8"
 }
 
