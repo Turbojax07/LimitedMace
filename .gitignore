@@ -9,6 +9,9 @@ build/
 *.iws
 bin/
 
+# VSCode
+.vscode/
+
 # Logs
 *.log
 
