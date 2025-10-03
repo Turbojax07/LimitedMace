@@ -1,10 +1,9 @@
-package com.example.limitedmace;
-
-import net.minecraft.server.network.ServerPlayerEntity;
-import net.minecraft.server.world.ServerWorld;
+package org.turbojax;
 
 import java.util.UUID;
 import java.util.concurrent.ConcurrentHashMap;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.server.world.ServerWorld;
 
 /**
  * One-tick guard so a single shift-click can't pull multiple maces.

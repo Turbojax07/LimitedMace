@@ -1,6 +1,7 @@
-package com.example.limitedmace.mixin;
+package org.turbojax.mixin;
 
-import com.example.limitedmace.LimitedMaceState;
+import org.turbojax.LimitedMaceMod;
+import org.turbojax.LimitedMaceState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -18,11 +19,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 public abstract class CraftingResultSlotMixin {
 
     // EXACT Yarn signature for 1.21.8:
-    @Inject(
-            method = "onTakeItem(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/item/ItemStack;)V",
-            at = @At("HEAD"),
-            cancellable = true
-    )
+    @Inject(method = "onTakeItem(Lnet/minecraft/entity/player/PlayerEntity;Lnet/minecraft/item/ItemStack;)V",at = @At("HEAD"),cancellable = true)
     private void limitedMace$onTakeItem(PlayerEntity player, ItemStack stack, CallbackInfo ci) {
 
         if (!(player instanceof ServerPlayerEntity serverPlayer)) {
@@ -36,19 +33,19 @@ public abstract class CraftingResultSlotMixin {
             return;
         }
 
-        ServerWorld world = serverPlayer.getWorld();
-        LimitedMaceState state = LimitedMaceState.get(world);
+        LimitedMaceState state = LimitedMaceState.get(serverPlayer.getServer());
 
-        if (state.crafted) {
-            serverPlayer.sendMessage(Text.literal("Only one mace can ever be crafted on this world."), false);
+        if (state.getCrafted() == LimitedMaceMod.getMaxMaces()) {
+            String insert = LimitedMaceMod.getMaxMaces() + "mace" + (LimitedMaceMod.getMaxMaces() == 1 ? "" : "s");
+            serverPlayer.sendMessage(Text.literal("Only " + insert + " can ever be crafted."), false);
             ci.cancel();
             return;
         }
 
-        state.crafted = true;
+        state.setCrafted(state.getCrafted() + 1);
         state.markDirty();
 
-        com.example.limitedmace.ClickGuard.markThisTick(serverPlayer, world);
+        org.turbojax.ClickGuard.markThisTick(serverPlayer, serverPlayer.getServer().getOverworld());
 
         //System.out.println("[LimitedMace] First mace crafted -> flag set true (allowing take).");
     }

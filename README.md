@@ -1,7 +1,9 @@
 # Limited Mace
 
-A simple Fabric mod that allows **only one Mace** to be crafted per world.  
-Once a player crafts the first Mace, all further crafting attempts (including automated crafters) are blocked.
+## A fork of [Limited Mace](https://github.com/Adriancodessometimes/LimitedMace) that allows for more than one mace
+
+A simple Fabric mod that allows a custom amount of maces to be crafted per world.  
+Once a player crafts the final Mace, all further crafting attempts (including crafters) are blocked.
 
 ## Features
 - Prevents mass-crafting with shift-click.

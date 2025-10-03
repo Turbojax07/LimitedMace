@@ -1,6 +1,8 @@
-package com.example.limitedmace.mixin;
+package org.turbojax.mixin;
 
-import com.example.limitedmace.LimitedMaceState;
+import net.minecraft.server.MinecraftServer;
+import org.turbojax.LimitedMaceMod;
+import org.turbojax.LimitedMaceState;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.Items;
@@ -25,9 +27,10 @@ public abstract class CraftingBlockerSlotMixin {
         ItemStack out = resultSlot.getStack();
         if (!out.isOf(Items.MACE)) return;
 
-        ServerWorld world = serverPlayer.getWorld();
-        if (LimitedMaceState.get(world).crafted) {
-            serverPlayer.sendMessage(Text.literal("Only one mace can ever be crafted on this world."), false);
+        MinecraftServer server = serverPlayer.getServer();
+        if (LimitedMaceState.get(server).getCrafted() == LimitedMaceMod.getMaxMaces()) {
+            String insert = LimitedMaceMod.getMaxMaces() + "mace" + (LimitedMaceMod.getMaxMaces() == 1 ? "" : "s");
+            serverPlayer.sendMessage(Text.literal("Only " + insert + " can ever be crafted on this world."), false);
             cir.setReturnValue(false);
         }
     }
